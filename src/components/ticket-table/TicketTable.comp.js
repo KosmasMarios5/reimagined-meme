@@ -1,14 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
 import { Table } from "react-bootstrap";
-
 import { Link } from "react-router-dom";
 
 export const TicketTable = () => {
-  const { searchTicketList, isLoading, error } = useSelector(
-    (state) => state.tickets
-  );
+  // const { searchTicketList, isLoading, error } = useSelector(
+  //   (state) => state.tickets
+  // );
+
+  const searchTicketList = [], isLoading= false, error = null;
   if (isLoading) return <h3>Loading ...</h3>;
   if (error) return <h3>{error}</h3>;
 
@@ -37,7 +36,7 @@ export const TicketTable = () => {
         ) : (
           <tr>
             <td colSpan="4" className="text-center">
-              No ticket show{" "}
+              No ticket to show{" "}
             </td>
           </tr>
         )}
