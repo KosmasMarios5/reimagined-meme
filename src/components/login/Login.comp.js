@@ -109,7 +109,6 @@ export const LoginForm = ({ formSwitcher }) => {
 					<hr />
 				</Col>
 			</Row>
-
 			<Row>
 				<Col>
 					<a href="/password-reset">Forget Password?</a>
