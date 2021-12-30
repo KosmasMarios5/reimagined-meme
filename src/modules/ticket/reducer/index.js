@@ -1,7 +1,17 @@
 import * as ActionTypes from '../actions/types'
+import {mapMultiple} from 'ergolib-ts'
+import {mapTicket} from "../types/map";
+import _ from 'lodash'
+import {fromJS} from "immutable";
 
 const INITIAL_STATE = {
     loading: false,
+    byId: {},
+    indexTable: {
+        loading: false,
+        items: [],
+        count: 0
+    },
 }
 
 function getTickets(state) {
@@ -10,8 +20,14 @@ function getTickets(state) {
 }
 
 function getTicketsSucceeded(state, action) {
+    const {payload: {count, result}} = action
+    const mappedData = mapMultiple(result, mapTicket)
+    const sortedKeys = _.orderBy(mappedData, 'date', 'desc').map(i => i.id);
     return state
-        .set('loading', false);
+        .set('byId', state.get('byId').merge(fromJS(mappedData)))
+        .setIn(['indexTable', 'count'], parseInt(Number(count)))
+        .setIn(['indexTable', 'items'], fromJS(sortedKeys))
+        .setIn(['indexTable', 'loading'], false)
 }
 
 function getTicketsFailed(state, action) {

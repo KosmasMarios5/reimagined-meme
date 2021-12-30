@@ -1,11 +1,12 @@
-import type {UnmappedUser, User} from "./types";
+import type {Ticket, UnmappedTicket} from "./types";
 
-export const mapUser: User = (datum: UnmappedUser) => {
+export const mapTicket: Ticket = (datum: UnmappedTicket) => {
     if (!datum) return
     return {
-        id: datum.UserId,
-        loginName: datum.UserLoginName,
-        username: datum.username,
-        locale: datum.locale?.toLowerCase(),
+        id: datum.id,
+        subject: datum.subject,
+        openAt: new Date(datum.openAt),
+        status: datum.status,
+        conversations: datum.conversations
     }
 }

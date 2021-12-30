@@ -1,23 +1,13 @@
-export type UnmappedUser = {
-    UserId: string,
-    UserLoginName: string,
-    username: string,
-    locale: string,
-    UserEmail: string,
-    UserCurrencySymbol: string,
-    UserCurrencyCode: string,
-    UserCurrencyDescription: string,
+export type Ticket = {
+    id: string,
+    subject: string,
+    status: string,
+    openAt: Date,
+    conversations: Array<{
+        sender: string,
+        message: string,
+        msgAt: Date,
+    }>
 }
 
-export type User = {
-    id: string,
-    loginName: string,
-    username: string,
-    locale: string,
-    email: string,
-    currency: {
-        symbol: string,
-        code: string,
-        description: string,
-    },
-}
+export type UnmappedTicket = Ticket

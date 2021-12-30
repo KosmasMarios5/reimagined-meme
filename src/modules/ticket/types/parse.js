@@ -1,11 +1,22 @@
-import type {User} from "./types";
+import type {Ticket} from "./types";
+import {parseMultiple} from 'ergolib-ts'
 
-export const parseUser: User = (datum) => {
+const parseConversion = (datum) => {
+    if (!datum) return;
+    return {
+        sender: datum.get('sender'),
+        message: datum.get('message'),
+        msgAt: datum.get('msgAt'),
+    }
+}
+
+export const parseTicket: Ticket = (datum) => {
     if (!datum) return;
     return {
         id: datum.get('id'),
-        loginName: datum.get('loginName'),
-        username: datum.get('username'),
-        locale: datum.get('locale'),
+        subject: datum.get('subject'),
+        openAt: datum.get('openAt'),
+        status: datum.get('status'),
+        conversations: parseMultiple(datum.get('conversations'), parseConversion),
     }
 }

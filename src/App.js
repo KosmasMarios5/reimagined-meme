@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./App.css";
 import {Module} from 'ergolib-ts'
 import {CurrentUserModule} from "./modules/currentUser";
@@ -9,6 +9,7 @@ import Login from "./modules/currentUser/pages/login/login";
 import useUserData from "./modules/currentUser/hooks/useUserData";
 import routes from './router/routes'
 import {TicketModule} from "./modules/ticket";
+import useUserAction from "./modules/currentUser/hooks/useUserAction";
 
 Module.load(TicketModule)
 Module.load(CurrentUserModule)
@@ -20,6 +21,14 @@ export const REDUCERS = Module.loadReducers()
 
 function App() {
     const {isLoggedIn} = useUserData()
+    const {getUserDetails} = useUserAction()
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            getUserDetails()
+        }
+    }, [isLoggedIn])
+
     if (!(isLoggedIn)) return <Login/>
     return (
         <div className="App">
@@ -28,10 +37,6 @@ function App() {
             </ConnectedRouter>
             {/*<Router>*/}
             {/*    <Switch>*/}
-
-            {/*        <Route exact path="/verification/:_id/:email">*/}
-            {/*            <UserVerification/>*/}
-            {/*        </Route>*/}
             {/*        <PrivateRoute exact path="/dashboard">*/}
             {/*            <Dashboard/>*/}
             {/*        </PrivateRoute>*/}

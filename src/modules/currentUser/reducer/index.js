@@ -17,7 +17,6 @@ function userLogin(state) {
         .set('errorLogin', null)
         .set('token', null)
         .set('loading', true)
-        .set('selectedStore', null)
         .set('isLoggedIn', false)
 }
 

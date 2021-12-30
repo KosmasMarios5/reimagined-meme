@@ -3,29 +3,38 @@ import * as Actions from '../actions/actions'
 import {requestCreator} from 'ergolib-ts'
 
 const getTickets = requestCreator({
-    url: '/v1/ticket',
-    method: 'POST',
+    url: '/ticket',
+    method: 'GET',
     onSuccess: Actions.getTicketsSucceeded,
     onFailure: Actions.getTicketsFailed,
+    overrideTask: async () => {
+        const data = require('./mock/tickets.json')
+        return {
+            data: {
+                result: data,
+                count: data.length
+            }
+        }
+    }
 })
 
 const getTicketDetails = requestCreator({
-    url: '/v1/ticket/:id',
+    url: '/ticket/:id',
     hasPathParameters: ['id'],
-    method: 'POST',
+    method: 'GET',
     onSuccess: Actions.getTicketDetailsSucceeded,
     onFailure: Actions.getTicketDetailsFailed,
 })
 
 const createTicket = requestCreator({
-    url: '/v1/ticket',
+    url: '/ticket',
     method: 'POST',
     onSuccess: Actions.createTicketSucceeded,
     onFailure: Actions.createTicketFailed,
 })
 
 const updateTicket = requestCreator({
-    url: '/v1/ticket/:id',
+    url: '/ticket/:id',
     hasPathParameters: ['id'],
     method: 'PUT',
     onSuccess: Actions.updateTicketSucceeded,

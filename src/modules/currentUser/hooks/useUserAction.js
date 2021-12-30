@@ -17,10 +17,8 @@ const useUserAction = () => {
         dispatch(actions.userLogout())
     }, [dispatch])
 
-    const getUserDetails = useCallback((storeId) => {
-        dispatch(actions.getUserDetails({
-            AddressId: storeId
-        }))
+    const getUserDetails = useCallback(() => {
+        dispatch(actions.getUserDetails({}))
     }, [dispatch])
 
     return {
