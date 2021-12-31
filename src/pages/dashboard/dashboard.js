@@ -1,9 +1,11 @@
 import React from "react";
-import {Button, Col, Nav, Row} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 import {PageBreadcrumb} from "../../components/breadcrumb/Breadcrumb.comp";
 import {DefaultLayout} from "../../layout/DefaultLayout";
 import {TicketTable} from "../../modules/ticket/components/Table/Table";
 import {Link} from "react-router-dom";
+import {ROUTE_PAGE_TICKET_CREATE} from "../../modules/ticket/routes";
+import {getRouteUrl} from 'ergolib-ts'
 
 export const Dashboard = () => {
     const pageTitle = 'Dashboard'
@@ -17,7 +19,7 @@ export const Dashboard = () => {
                     <PageBreadcrumb page={pageTitle}/>
                 </Col>
             </Row>
-            <Link to="/add-ticket" style={{paddingLeft: 0}}>
+            <Link to={getRouteUrl(ROUTE_PAGE_TICKET_CREATE)} style={{paddingLeft: 0}}>
                 <Button
                     variant="primary"
                 >
