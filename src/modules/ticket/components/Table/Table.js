@@ -1,25 +1,15 @@
 import React from "react";
-// import { Table } from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {formatDate, Table} from 'ergolib-ts'
-import useTicketAction from "../../modules/ticket/hooks/useTicketAction";
+import useTicketAction from "../../hooks/useTicketAction";
+import useTicketData from "../../hooks/useTicketData";
 
 export const TicketTable = () => {
-    // const { searchTicketList, isLoading, error } = useSelector(
-    //   (state) => state.tickets
-    // );
     const {getTickets: dataManager} = useTicketAction()
-    const searchTicketList = [], isLoading = false, error = null;
-    if (isLoading) return <h3>Loading ...</h3>;
-    if (error) return <h3>{error}</h3>;
-
+    const {indexTable} = useTicketData()
     return (
         <Table
-            data={{
-                loading: false,
-                count: 0,
-                data: []
-            }}
+            data={indexTable}
             pageSize={10}
             dataManager={dataManager}
             noHeader
@@ -39,7 +29,7 @@ export const TicketTable = () => {
                     Cell: ({value}) => (
                         <div>
                             <strong>{formatDate(value, formatDate.formatTypes.TITLE_HALF)} </strong>
-                            <span>({formatDate(value, formatDate.formatTypes.TIME_ONLY)})</span>
+                            <span>({formatDate(value, formatDate.formatTypes.TIME_ONLY_HOURS_MINUTES)})</span>
                         </div>
                     )
                 },

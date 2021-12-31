@@ -24,6 +24,12 @@ const getTicketDetails = requestCreator({
     method: 'GET',
     onSuccess: Actions.getTicketDetailsSucceeded,
     onFailure: Actions.getTicketDetailsFailed,
+    overrideTask: async ({id}) => {
+        const data = require('./mock/tickets.json')
+        return {
+            data: data.find(d => d.id === id)
+        }
+    }
 })
 
 const createTicket = requestCreator({

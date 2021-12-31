@@ -5,6 +5,7 @@ const parseConversion = (datum) => {
     if (!datum) return;
     return {
         sender: datum.get('sender'),
+        senderName: datum.get('senderName'),
         message: datum.get('message'),
         msgAt: datum.get('msgAt'),
     }

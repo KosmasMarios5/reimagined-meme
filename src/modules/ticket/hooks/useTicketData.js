@@ -5,8 +5,8 @@ import {parseMultipleFromReference} from 'ergolib-ts'
 import {parseTicket} from "../types/parse";
 
 const selectLoading = createSelector(
-    (state) => state.ticket.get('loading'),
-    (item) => item
+    (state) => state.ticket,
+    (item) => item.get('loading')
 )
 
 const selectIndexTable = createSelector(
@@ -22,12 +22,29 @@ const selectIndexTable = createSelector(
     })
 )
 
-const useTicketData = () => {
+const selectById = createSelector(
+    [
+        (state) => state.ticket.get('byId'),
+        (state) => state.currentUser.get('language'),
+        (state, id) => id
+    ],
+    (byId, language, id) => {
+        return parseTicket(byId.get(id), language);
+    }
+)
+
+type Props = {
+    id?: string
+}
+
+const useTicketData = ({id}: Props = {}) => {
     const loading = useSelector(selectLoading)
     const indexTable = useSelector(selectIndexTable)
+    const byId = useSelector(state => selectById(state, id))
     return {
         loading,
         indexTable,
+        byId
     }
 }
 

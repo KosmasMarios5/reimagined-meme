@@ -1,0 +1,80 @@
+.time_date {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+
+.conversation {
+  height: 100%;
+}
+.conversation img {
+  max-width: 100%;
+  height: auto;
+}
+.conversation__history {
+  background: var(--bs-gray-100);
+  height: 400px;
+  overflow-y: auto;
+  padding: 1rem 0.5rem;
+}
+.conversation form {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+}
+.conversation form textarea {
+  resize: none;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.message__avatar {
+  display: inline-block;
+  background-color: var(--bs-gray-200);
+  border-radius: 50%;
+  text-align: center;
+  height: 2rem;
+  width: 2rem;
+}
+.message__avatar > span {
+  font-size: 1rem;
+  line-height: 1;
+  position: relative;
+  top: 0.25rem;
+}
+.message__body {
+  width: 57%;
+}
+.message__body p {
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+.message--incoming .message__body {
+  padding-left: 0.5rem;
+}
+.message--incoming .message__body p {
+  background: var(--bs-white) none repeat scroll 0 0;
+  color: var(--bs-secondary);
+}
+.message--outgoing {
+  flex-direction: row-reverse;
+}
+.message--outgoing .message__body {
+  padding-right: 0.5rem;
+}
+.message--outgoing .message__body p {
+  background: var(--bs-primary) none repeat scroll 0 0;
+  color: #fff;
+}
+
+.messaging {
+  padding: 0 0 50px 0;
+}
+
+/*# sourceMappingURL=messageHistory.css.map */

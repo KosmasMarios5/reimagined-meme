@@ -9,7 +9,7 @@ import {
   Spinner,
   Alert,
 } from "react-bootstrap";
-import { openNewTicket } from "./addTicketAction";
+// import { openNewTicket } from "./addTicketAction";
 import { shortText } from "../../utils/validation";
 import { restSuccessMSg } from "./addTicketSlicer";
 

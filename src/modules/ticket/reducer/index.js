@@ -65,6 +65,25 @@ function updateTicketFailed(state, action) {
         .set('loading', false);
 }
 
+
+function getTicketDetails(state) {
+    return state
+        .set('loading', true)
+}
+
+function getTicketDetailsSucceeded(state, action) {
+    const {payload} = action;
+    const mappedData = mapTicket(payload)
+    return state
+        .set('loading', false)
+        .setIn(['byId', mappedData.id], fromJS(mappedData))
+}
+
+function getTicketDetailsFailed(state, action) {
+    return state
+        .set('loading', false)
+}
+
 export default {
     initialState: INITIAL_STATE,
     handlers: {
@@ -79,5 +98,10 @@ export default {
         [ActionTypes.UPDATE_TICKET]: updateTicket,
         [ActionTypes.UPDATE_TICKET_SUCCEEDED]: updateTicketSucceeded,
         [ActionTypes.UPDATE_TICKET_FAILED]: updateTicketFailed,
+
+        [ActionTypes.GET_TICKET_DETAILS]: getTicketDetails,
+        [ActionTypes.GET_TICKET_DETAILS_SUCCEEDED]: getTicketDetailsSucceeded,
+        [ActionTypes.GET_TICKET_DETAILS_FAILED]: getTicketDetailsFailed,
+
     }
 }

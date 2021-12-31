@@ -16,8 +16,16 @@ const useTicketAction = () => {
         )
     }, [dispatch])
 
+    const getTicketDetails = useCallback((id) => {
+        dispatch(actions.getTicketDetails({
+                id
+            })
+        )
+    }, [dispatch])
+
     return {
-        getTickets
+        getTickets,
+        getTicketDetails
     }
 }
 
