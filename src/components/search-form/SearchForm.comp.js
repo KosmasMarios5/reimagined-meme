@@ -1,34 +1,26 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 // import { filterSerachTicket } from "../../pages/ticket-list/ticketsAction";
-
-import { Form, Row, Col } from "react-bootstrap";
+import {Form} from "react-bootstrap";
 
 export const SearchForm = () => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  const handleOnChange = (e) => {
-    const { value } = e.target;
+    const handleOnChange = (e) => {
+        const {value} = e.target;
 
-    // dispatch(filterSerachTicket(value));
-  };
+        // dispatch(filterSerachTicket(value));
+    };
 
-  return (
-    <div>
-      <Form>
-        <Form.Group as={Row}>
-          <Form.Label column sm="3">
-            Search:
-          </Form.Label>
-          <Col sm="9">
-            <Form.Control
-              name="searchStr"
-              onChange={handleOnChange}
-              placeholder="Search ..."
-            />
-          </Col>
-        </Form.Group>
-      </Form>
-    </div>
-  );
+    return (
+        <Form>
+            <Form.Group>
+                <Form.Control
+                    name="searchStr"
+                    onChange={handleOnChange}
+                    placeholder="Search ..."
+                />
+            </Form.Group>
+        </Form>
+    );
 };

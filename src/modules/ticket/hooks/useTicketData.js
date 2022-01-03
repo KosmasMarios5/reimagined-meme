@@ -9,6 +9,14 @@ const selectLoading = createSelector(
     (item) => item.get('loading')
 )
 
+const selectCreate = createSelector(
+    (state) => state.ticket.get('create'),
+    (item) => ({
+        loading: item.get('loading'),
+        error: item.get('error'),
+    })
+)
+
 const selectIndexTable = createSelector(
     [
         (state) => state.ticket.get('indexTable'),
@@ -39,10 +47,12 @@ type Props = {
 
 const useTicketData = ({id}: Props = {}) => {
     const loading = useSelector(selectLoading)
+    const create = useSelector(selectCreate)
     const indexTable = useSelector(selectIndexTable)
     const byId = useSelector(state => selectById(state, id))
     return {
         loading,
+        create,
         indexTable,
         byId
     }

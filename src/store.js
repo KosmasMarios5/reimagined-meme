@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import ticketsReducer from "./pages/ticket-list/ticketsSlice";
+import ticketsReducer from "./modules/ticket/pages/index/ticketsSlice";
 import loginReducer from "./components/login/loginSlice";
 import userReducer from "./pages/dashboard/userSlice";
-import newTicketReducer from "./components/add-ticket-form/addTicketSlicer";
+import newTicketReducer from "./modules/ticket/components/createModal/addTicketSlicer";
 import registrationReducer from "./components/registration-form/userRegestrationSlice";
 import passwordReducer from "./components/password-reset/passwordSlice";
 

@@ -5,6 +5,10 @@ import _ from 'lodash'
 import {fromJS} from "immutable";
 
 const INITIAL_STATE = {
+    create: {
+        loading: false,
+        error: null,
+    },
     loading: false,
     byId: {},
     indexTable: {
@@ -37,17 +41,21 @@ function getTicketsFailed(state, action) {
 
 function createTicket(state) {
     return state
-        .set('loading', true);
+        .setIn(['create', 'loading'], true)
+        .setIn(['create', 'error'], null)
 }
 
 function createTicketSucceeded(state, action) {
     return state
-        .set('loading', false);
+        .setIn(['create', 'loading'], false)
+        .setIn(['create', 'error'], null)
 }
 
 function createTicketFailed(state, action) {
+    const {error} = action.payload
     return state
-        .set('loading', false);
+        .setIn(['create', 'loading'], false)
+        .setIn(['create', 'error'], error)
 }
 
 function updateTicket(state) {

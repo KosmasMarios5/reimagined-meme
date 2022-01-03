@@ -23,9 +23,19 @@ const useTicketAction = () => {
         )
     }, [dispatch])
 
+    const createTicket = useCallback((values) => {
+        dispatch(actions.createTicket({
+                subject: values.subject,
+                issueDate: values.issueDate,
+                message: values.message,
+            })
+        )
+    }, [dispatch])
+
     return {
         getTickets,
-        getTicketDetails
+        getTicketDetails,
+        createTicket
     }
 }
 

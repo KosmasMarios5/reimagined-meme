@@ -12,7 +12,7 @@ export const TicketTable = () => {
             data={indexTable}
             pageSize={10}
             dataManager={dataManager}
-            noHeader
+            // noHeader
             showIndex
             columns={[
                 {

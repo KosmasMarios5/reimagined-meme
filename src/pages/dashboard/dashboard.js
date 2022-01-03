@@ -2,10 +2,7 @@ import React from "react";
 import {Button, Col, Row} from "react-bootstrap";
 import {PageBreadcrumb} from "../../components/breadcrumb/Breadcrumb.comp";
 import {DefaultLayout} from "../../layout/DefaultLayout";
-import {TicketTable} from "../../modules/ticket/components/Table/Table";
-import {Link} from "react-router-dom";
-import {ROUTE_PAGE_TICKET_CREATE} from "../../modules/ticket/routes";
-import {getRouteUrl} from 'ergolib-ts'
+import {TicketTable} from "../../modules/ticket/components/table/table";
 
 export const Dashboard = () => {
     const pageTitle = 'Dashboard'
@@ -19,13 +16,13 @@ export const Dashboard = () => {
                     <PageBreadcrumb page={pageTitle}/>
                 </Col>
             </Row>
-            <Link to={getRouteUrl(ROUTE_PAGE_TICKET_CREATE)} style={{paddingLeft: 0}}>
-                <Button
-                    variant="primary"
-                >
-                    Add New Ticket
-                </Button>
-            </Link>
+            {/*<Link to={getRouteUrl(ROUTE_PAGE_TICKET_CREATE)} style={{paddingLeft: 0}}>*/}
+            <Button
+                variant="primary"
+            >
+                Add New Ticket
+            </Button>
+            {/*</Link>*/}
             <hr/>
             <Row>
                 <Col className="recent-ticket">
