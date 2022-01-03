@@ -1,6 +1,7 @@
 import * as ActionTypes from '../actions/types'
 import * as Actions from '../actions/actions'
 import {requestCreator} from 'ergolib-ts'
+import data from "./mock/tickets.json";
 
 const getTickets = requestCreator({
     url: '/ticket',
@@ -37,6 +38,11 @@ const createTicket = requestCreator({
     method: 'POST',
     onSuccess: Actions.createTicketSucceeded,
     onFailure: Actions.createTicketFailed,
+    overrideTask: async () => {
+        return {
+            data: require('./mock/new-ticket.json')
+        }
+    }
 })
 
 const updateTicket = requestCreator({

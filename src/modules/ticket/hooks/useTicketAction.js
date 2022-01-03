@@ -32,10 +32,16 @@ const useTicketAction = () => {
         )
     }, [dispatch])
 
+    const clearCreateTicketData = useCallback((values) => {
+        dispatch(actions.clearCreateTicketData()
+        )
+    }, [dispatch])
+
     return {
         getTickets,
         getTicketDetails,
-        createTicket
+        createTicket,
+        clearCreateTicketData
     }
 }
 

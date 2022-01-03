@@ -1,17 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Alert, Button, Col, Form, Modal, Row, Spinner} from "react-bootstrap";
 import useTicketData from "../../hooks/useTicketData";
 import useTicketAction from "../../hooks/useTicketAction";
 import * as yup from "yup";
 import {ErrorMessage, Field, Formik} from 'formik';
 import {WysiwygEditor} from "ergolib-ts"
+import {Link} from "react-router-dom";
+import {getRouteUrl} from 'ergolib-ts'
+import {ROUTE_PAGE_TICKET_DETAILS} from "../../routes";
 
 export const AddTicketForm = () => {
-    const {create: {error, loading}} = useTicketData()
-    const {createTicket} = useTicketAction()
+    const {create: {error, loading, newItemId}} = useTicketData()
+    const {byId} = useTicketData({id: newItemId})
+    const {createTicket, clearCreateTicketData} = useTicketAction()
 
     const onSubmit = (values) => {
-        debugger
         createTicket(values)
     }
 
@@ -26,6 +29,12 @@ export const AddTicketForm = () => {
             .string()
             .required(),
     })
+
+    useEffect(() => {
+        return () => {
+            clearCreateTicketData()
+        }
+    },[])
 
     return (
         <Formik
@@ -56,8 +65,12 @@ export const AddTicketForm = () => {
                         </Modal.Header>
                         <Modal.Body>
                             {error && <Alert variant="danger">{error}</Alert>}
-                            {/*{successMsg && <Alert variant="primary">{successMsg}</Alert>}*/}
-                            {loading && <Spinner variant="primary" animation="border"/>}
+                            {byId && (
+                                <Alert variant="primary">
+                                    <span>Your ticket was created successfully. You can view it's details by using this link </span>
+                                    <Link to={getRouteUrl(ROUTE_PAGE_TICKET_DETAILS, {id: byId.id})}><strong>#{byId.id}</strong></Link>
+                                </Alert>
+                            )}
                             <Form.Group as={Row} className={'mb-2'}>
                                 <Form.Label column sm={3}>
                                     Subject
@@ -101,6 +114,7 @@ export const AddTicketForm = () => {
                             </Form.Group>
                         </Modal.Body>
                         <Modal.Footer>
+                            {loading && <Spinner variant="primary" animation="border"/>}
                             <Button type="submit" variant="primary">
                                 Open Ticket
                             </Button>

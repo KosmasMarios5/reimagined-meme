@@ -12,6 +12,7 @@ export const getTicketDetailsFailed = actionCreator(ActionTypes.GET_TICKET_DETAI
 export const createTicket = actionCreator(ActionTypes.CREATE_TICKET);
 export const createTicketSucceeded = actionCreator(ActionTypes.CREATE_TICKET_SUCCEEDED);
 export const createTicketFailed = actionCreator(ActionTypes.CREATE_TICKET_FAILED);
+export const clearCreateTicketData = actionCreator(ActionTypes.CLEAR_CREATE_TICKET_DATA);
 
 export const updateTicket = actionCreator(ActionTypes.UPDATE_TICKET);
 export const updateTicketSucceeded = actionCreator(ActionTypes.UPDATE_TICKET_SUCCEEDED);

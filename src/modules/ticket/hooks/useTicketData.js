@@ -14,6 +14,7 @@ const selectCreate = createSelector(
     (item) => ({
         loading: item.get('loading'),
         error: item.get('error'),
+        newItemId: item.get('newItemId'),
     })
 )
 

@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     create: {
         loading: false,
         error: null,
+        newItemId: null
     },
     loading: false,
     byId: {},
@@ -46,7 +47,11 @@ function createTicket(state) {
 }
 
 function createTicketSucceeded(state, action) {
+    const {payload} = action
+    const mappedData = mapTicket(payload)
     return state
+        .setIn(['byId', mappedData.id], fromJS(mappedData))
+        .setIn(['create', 'newItemId'], mappedData.id)
         .setIn(['create', 'loading'], false)
         .setIn(['create', 'error'], null)
 }
@@ -56,6 +61,11 @@ function createTicketFailed(state, action) {
     return state
         .setIn(['create', 'loading'], false)
         .setIn(['create', 'error'], error)
+}
+
+function clearCreateTicketData(state) {
+    return state
+        .setIn(['create', 'newItemId'], null)
 }
 
 function updateTicket(state) {
@@ -102,6 +112,7 @@ export default {
         [ActionTypes.CREATE_TICKET]: createTicket,
         [ActionTypes.CREATE_TICKET_SUCCEEDED]: createTicketSucceeded,
         [ActionTypes.CREATE_TICKET_FAILED]: createTicketFailed,
+        [ActionTypes.CLEAR_CREATE_TICKET_DATA]: clearCreateTicketData,
 
         [ActionTypes.UPDATE_TICKET]: updateTicket,
         [ActionTypes.UPDATE_TICKET_SUCCEEDED]: updateTicketSucceeded,
