@@ -4,12 +4,17 @@ import useTicketData from "../../hooks/useTicketData";
 import useTicketAction from "../../hooks/useTicketAction";
 import * as yup from "yup";
 import {ErrorMessage, Field, Formik} from 'formik';
-import {WysiwygEditor} from "ergolib-ts"
+import {getRouteUrl, WysiwygEditor} from "ergolib-ts"
 import {Link} from "react-router-dom";
-import {getRouteUrl} from 'ergolib-ts'
 import {ROUTE_PAGE_TICKET_DETAILS} from "../../routes";
 
-export const AddTicketForm = () => {
+type Props = {
+    show: boolean,
+    onHide: Function
+}
+
+const CreateModal = (props: Props) => {
+    const {show, onHide} = props
     const {create: {error, loading, newItemId}} = useTicketData()
     const {byId} = useTicketData({id: newItemId})
     const {createTicket, clearCreateTicketData} = useTicketAction()
@@ -34,7 +39,7 @@ export const AddTicketForm = () => {
         return () => {
             clearCreateTicketData()
         }
-    },[])
+    }, [])
 
     return (
         <Formik
@@ -52,10 +57,12 @@ export const AddTicketForm = () => {
                   dirty
               }) => (
                 <Modal
-                    show
+                    show={show}
+                    onHide={onHide}
                     size="lg"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
+
                 >
                     <Form onSubmit={handleSubmit}>
                         <Modal.Header closeButton>
@@ -68,7 +75,8 @@ export const AddTicketForm = () => {
                             {byId && (
                                 <Alert variant="primary">
                                     <span>Your ticket was created successfully. You can view it's details by using this link </span>
-                                    <Link to={getRouteUrl(ROUTE_PAGE_TICKET_DETAILS, {id: byId.id})}><strong>#{byId.id}</strong></Link>
+                                    <Link
+                                        to={getRouteUrl(ROUTE_PAGE_TICKET_DETAILS, {id: byId.id})}><strong>#{byId.id}</strong></Link>
                                 </Alert>
                             )}
                             <Form.Group as={Row} className={'mb-2'}>
@@ -125,3 +133,5 @@ export const AddTicketForm = () => {
         </Formik>
     )
 }
+
+export default CreateModal
