@@ -43,11 +43,14 @@
 .message__body {
   width: 57%;
 }
-.message__body p {
+.message__body > p {
   font-size: 0.85rem;
   margin: 0;
   padding: 0.5rem;
   width: 100%;
+}
+.message__body > p p {
+  margin: 0;
 }
 .message--incoming .message__body {
   padding-left: 0.5rem;

@@ -21,16 +21,6 @@
     padding: .5rem;
   }
 
-  //form {
-  //  position: relative;
-  //  display: flex;
-  //  align-items: flex-start;
-  //  padding: .5rem 0;
-  //
-  //  textarea {
-  //    resize: none;
-  //  }
-  //}
   .tox-tinymce {
     min-height: 160px;
   }
@@ -60,12 +50,15 @@
     width: 57%;
   }
 
-  &__body p {
+  &__body > p {
     font-size: .85rem;
     margin: 0;
     padding: .5rem;
     width: 100%;
-    //border-radius: 6px;
+
+    p{
+      margin: 0
+    }
   }
 
   &--incoming &__body {
