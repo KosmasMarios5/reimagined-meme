@@ -11,7 +11,6 @@ const useTicketAction = () => {
                 requiresCounts: true,
                 skip: pageIndex * pageSize,
                 take: pageSize,
-                isTemplate: 1
             })
         )
     }, [dispatch])
@@ -37,11 +36,20 @@ const useTicketAction = () => {
         )
     }, [dispatch])
 
+    const replyToTicket = useCallback((id, values) => {
+        dispatch(actions.replyToTicket({
+                id: id,
+                message: values.message
+            })
+        )
+    }, [dispatch])
+
     return {
         getTickets,
         getTicketDetails,
         createTicket,
-        clearCreateTicketData
+        clearCreateTicketData,
+        replyToTicket
     }
 }
 

@@ -1,53 +1,53 @@
-import React, {useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {Button, Form} from "react-bootstrap";
+import {ErrorMessage, Field, FormikProvider, useFormik} from "formik";
+import * as yup from "yup";
+import {WysiwygEditor} from "ergolib-ts";
+import useTicketAction from "../../hooks/useTicketAction";
 
-// import { replyOnTicket } from "../../pages/ticket-list/ticketsAction";
+const validationSchema = yup.object({
+    message: yup
+        .string()
+        .required(),
+})
 
 export const MessageForm = ({id}) => {
-    // const {
-    //   user: { name },
-    // } = useSelector((state) => state.user);
-    //
-    const name = 'marios'
-    const [message, setMessage] = useState("");
-
-    const handleOnChange = (e) => {
-        setMessage(e.target.value);
+    const {replyToTicket} = useTicketAction()
+    const onSubmit = (values) => {
+        replyToTicket(id, values)
     };
-
-    const handleOnSubmit = (e) => {
-        e.preventDefault();
-
-        const msgObj = {
-            message,
-            sender: name,
-        };
-
-        // dispatch(replyOnTicket(_id, msgObj));
-        setMessage("");
-    };
-
+    const formik = useFormik({
+        initialValues: {
+            message: '',
+        },
+        validationSchema: validationSchema,
+        onSubmit: onSubmit,
+    })
     return (
-        <Form onSubmit={handleOnSubmit}>
-            <Form.Control
-                value={message}
-                onChange={handleOnChange}
-                as="textarea"
-                row="5"
-                name="detail"
-                placeholder={"Your message"}
-                className={'me-3'}
-            />
-            <div className="text-right">
-                <Button size={'sm'} variant="primary" type="submit">
-                    Reply
-                </Button>
-            </div>
-        </Form>
+        <FormikProvider value={formik}>
+            <Form onSubmit={formik.handleSubmit}>
+                <Form.Group>
+                    <Field
+                        name="message"
+                        component={WysiwygEditor}
+                    />
+                    <Form.Text className="text-danger">
+                        <ErrorMessage name={'message'}/>
+                    </Form.Text>
+                </Form.Group>
+                <div className="text-end mb-2">
+                    <Button variant="primary" type="submit">
+                        Reply
+                    </Button>
+                </div>
+            </Form>
+        </FormikProvider>
     )
 }
 
-MessageForm.propTypes = {
-    id: PropTypes.string.isRequired,
-};
+MessageForm.propTypes =
+    {
+        id: PropTypes.string.isRequired,
+    }
+;

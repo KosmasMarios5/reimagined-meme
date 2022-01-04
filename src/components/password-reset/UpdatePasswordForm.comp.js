@@ -180,7 +180,6 @@ const UpdatePasswordForm = () => {
 								At least on of the special characters i.e @ # $ % &{" "}
 							</li>
 						</ul>
-
 						<Button
 							variant="primary"
 							type="submit"

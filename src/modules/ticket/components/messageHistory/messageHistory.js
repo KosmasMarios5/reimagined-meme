@@ -16,7 +16,7 @@ export const MessageHistory = ({msg}) => {
                     <span>{senderName.toUpperCase().slice(0, 2)}</span>
                 </div>
                 <div className="message__body">
-                    <p className={'shadow-sm'}>{row.message}</p>
+                    <p className={'shadow-sm'} dangerouslySetInnerHTML={{__html: row.message}}/>
                     <span className="time_date">
                         {formatDate(row.msgAt, formatDate.formatTypes.TIME_ONLY_HOURS_MINUTES)} | {formatDate(row.msgAt, formatDate.formatTypes.DATE_ONLY)}
                     </span>

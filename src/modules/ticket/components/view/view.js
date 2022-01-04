@@ -1,10 +1,12 @@
 // @flow
 import React, {Fragment} from 'react';
-import {Button, Col, Row} from "react-bootstrap";
+import {Breadcrumb, Button, Col, Row} from "react-bootstrap";
 import type {Ticket} from "../../types/types";
-import {formatDate} from 'ergolib-ts'
+import {formatDate, getRouteUrl} from 'ergolib-ts'
 import {MessageHistory} from "../messageHistory/messageHistory";
 import {MessageForm} from "../messageForm/messageForm";
+import {LinkContainer} from "react-router-bootstrap";
+import {ROUTE_PAGE_TICKET_INDEX} from "../../routes";
 
 type Props = {
     ticket: Ticket,
@@ -16,28 +18,41 @@ const View = (props: Props) => {
     return (
         <Fragment>
             <Row>
-                <Col md={4}>
-                    <div className="d-flex justify-content-between mb-3">
-                        <div className="status"><strong>Status:</strong> {status}</div>
-                        <Button
-                            variant="warning"
-                            onClick={onClose}
-                            disabled={status === "Closed"}
-                        >
-                            Close Ticket
-                        </Button>
+                <Col md={6} className={'mt-2'}>
+                    <Breadcrumb>
+                        <LinkContainer to={getRouteUrl(ROUTE_PAGE_TICKET_INDEX)}>
+                            <Breadcrumb.Item>Tickets</Breadcrumb.Item>
+                        </LinkContainer>
+                        <Breadcrumb.Item active>
+                            <span>Ticket </span><strong>#{id}</strong>
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
+                    <div className="d-flex justify-content-between">
+                        <div>
+                            <strong>Status: </strong>
+                            <span>{status}</span>
+                            <div/>
+                            <strong>Ticket Opened: </strong>
+                            <span>{openAt && formatDate(openAt, formatDate.formatTypes.TITLE_HALF)}</span>
+                        </div>
+                        <div>
+                            <Button
+                                variant="danger"
+                                onClick={onClose}
+                                disabled={status === "Closed"}
+                            >
+                                Close Ticket
+                            </Button>
+                        </div>
                     </div>
-                    <div className="d-flex justify-content-between mb-3">
-                        <strong>Ticket Opened:</strong> {openAt && formatDate(openAt, formatDate.formatTypes.TITLE_HALF)}
-                    </div>
-                    <div className="subject">
-                        <strong>Subject:</strong>
+                    <hr/>
+                    <div>
                         <p>
                             {subject}
                         </p>
                     </div>
                 </Col>
-                <Col md={8}>
+                <Col md={6}>
                     <div className="conversation">
                         <div className="conversation__history">
                             {conversations && (

@@ -18,3 +18,7 @@ export const updateTicket = actionCreator(ActionTypes.UPDATE_TICKET);
 export const updateTicketSucceeded = actionCreator(ActionTypes.UPDATE_TICKET_SUCCEEDED);
 export const updateTicketFailed = actionCreator(ActionTypes.UPDATE_TICKET_FAILED);
 
+export const replyToTicket = actionCreator(ActionTypes.REPLY_TO_TICKET);
+export const replyToTicketSucceeded = actionCreator(ActionTypes.REPLY_TO_TICKET_SUCCEEDED);
+export const replyToTicketFailed = actionCreator(ActionTypes.REPLY_TO_TICKET_FAILED);
+

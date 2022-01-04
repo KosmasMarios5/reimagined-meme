@@ -6,17 +6,12 @@ import {Container} from "react-bootstrap";
 export const DefaultLayout = ({children}) => {
     return (
         <div className="default-layout">
-            <header className="header mb-2">
-                <Header/>
-            </header>
-            <main className="main">
+            <Header/>
+            <main className="main pe-1 ps-1">
                 <Container fluid={true}>
                     {children}
                 </Container>
             </main>
-            <footer className="footer">
-                <Footer/>
-            </footer>
         </div>
     );
 };

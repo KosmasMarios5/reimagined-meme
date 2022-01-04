@@ -41,12 +41,11 @@ export default () => {
 
     return (
         <DefaultLayout>
-            <h1 className="pb-2 mt-4 mb-2 border-bottom">
-                Ticket Details
-            </h1>
+            {/*<h1 className="pb-2 mt-4 mb-2 border-bottom">*/}
+            {/*    Ticket Details*/}
+            {/*</h1>*/}
             <Row>
                 <Col>
-                    <PageBreadcrumb page="Ticket"/>
                 </Col>
             </Row>
             <Row>

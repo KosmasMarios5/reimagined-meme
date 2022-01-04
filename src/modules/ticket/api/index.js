@@ -1,7 +1,6 @@
 import * as ActionTypes from '../actions/types'
 import * as Actions from '../actions/actions'
 import {requestCreator} from 'ergolib-ts'
-import data from "./mock/tickets.json";
 
 const getTickets = requestCreator({
     url: '/ticket',
@@ -53,9 +52,36 @@ const updateTicket = requestCreator({
     onFailure: Actions.updateTicketFailed,
 })
 
+const replyToTicket = requestCreator({
+    url: '/ticket/:id/reply',
+    hasPathParameters: ['id'],
+    method: 'PUT',
+    onSuccess: Actions.replyToTicketSucceeded,
+    onFailure: Actions.replyToTicketFailed,
+    overrideTask: async ({id, message}) => {
+        const data = require('./mock/tickets.json')
+        const item = data.find(d => d.id === id)
+        return {
+            data: {
+                ...item,
+                conversations: [
+                    ...item.conversations,
+                    {
+                        "sender": 1,
+                        "message": message,
+                        "msgAt": new Date().toString(),
+                        "senderName": "Gillian Sosa"
+                    },
+                ]
+            }
+        }
+    }
+})
+
 export default {
     [ActionTypes.GET_TICKETS]: getTickets,
     [ActionTypes.GET_TICKET_DETAILS]: getTicketDetails,
     [ActionTypes.CREATE_TICKET]: createTicket,
     [ActionTypes.UPDATE_TICKET]: updateTicket,
+    [ActionTypes.REPLY_TO_TICKET]: replyToTicket,
 }

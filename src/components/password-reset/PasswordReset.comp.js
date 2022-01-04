@@ -57,7 +57,6 @@ export const ResetPassword = () => {
 								required
 							/>
 						</Form.Group>
-
 						<Button type="submit">Reset Password</Button>
 					</Form>
 					<hr />
