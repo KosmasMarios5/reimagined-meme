@@ -21,6 +21,16 @@ const parseTimeline = (datum) => {
     }
 }
 
+const parseAttachment = (datum) => {
+    if (!datum) return;
+    return {
+        id: datum.get('id'),
+        fileName: datum.get('fileName'),
+        url: datum.get('url'),
+        uploadDate: datum.get('uploadDate'),
+    }
+}
+
 export const parseTicket: Ticket = (datum) => {
     if (!datum) return;
     return {
@@ -30,5 +40,6 @@ export const parseTicket: Ticket = (datum) => {
         status: datum.get('status'),
         conversations: parseMultiple(datum.get('conversations'), parseConversion),
         timeline: parseMultiple(datum.get('timeline'), parseTimeline),
+        attachments: parseMultiple(datum.get('attachments'), parseAttachment),
     }
 }

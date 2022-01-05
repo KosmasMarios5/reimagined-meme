@@ -8,6 +8,7 @@ export const mapTicket: Ticket = (datum: UnmappedTicket) => {
         openAt: new Date(datum.openAt),
         status: datum.status,
         conversations: datum.conversations,
-        timeline: datum.timeline
+        timeline: datum.timeline,
+        attachments: datum.attachments
     }
 }

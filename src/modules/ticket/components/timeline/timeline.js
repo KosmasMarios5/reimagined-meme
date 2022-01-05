@@ -14,8 +14,9 @@ const Timeline = (props: Props) => {
     return (
         <div className={'bg-light'}>
             <VerticalTimeline className={'bg-light'}>
-                {data.map(datum => (
+                {data.map((datum, index) => (
                     <VerticalTimelineElement
+                        key={index}
                         textClassName={'bg-white shadow-sm'}
                         contentArrowStyle={{borderRight: '7px solid  var(--bg-white)'}}
                         date={formatDate(datum.date, formatDate.formatTypes.TITLE_HALF)}

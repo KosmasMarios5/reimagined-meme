@@ -24,10 +24,6 @@ export default () => {
         <DefaultLayout>
             <Row>
                 <Col>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
                     {loading && <Spinner variant="primary" animation="border"/>}
                 </Col>
             </Row>

@@ -67,6 +67,38 @@
         "date": "Jul 31, 2021",
         "by": "Patricia Alvarado"
       }
+    ],
+    "attachments": [
+      {
+        "id": 1,
+        "fileName": "tincidunt, neque vitae",
+        "url": "non enim",
+        "uploadDate": "Apr 14, 2021"
+      },
+      {
+        "id": 2,
+        "fileName": "tincidunt vehicula risus.",
+        "url": "sodales.",
+        "uploadDate": "Dec 26, 2020"
+      },
+      {
+        "id": 3,
+        "fileName": "massa.",
+        "url": "eu tellus",
+        "uploadDate": "Jun 14, 2021"
+      },
+      {
+        "id": 4,
+        "fileName": "rutrum. Fusce dolor quam,",
+        "url": "eget, ipsum.",
+        "uploadDate": "Aug 17, 2021"
+      },
+      {
+        "id": 5,
+        "fileName": "Nunc ullamcorper, velit in",
+        "url": "dignissim tempor",
+        "uploadDate": "May 2, 2021"
+      }
     ]
   },
   {
@@ -137,6 +169,38 @@
         "date": "Aug 29, 2021",
         "by": "Inez Crawford"
       }
+    ],
+    "attachments": [
+      {
+        "id": 1,
+        "fileName": "tincidunt, neque vitae",
+        "url": "non enim",
+        "uploadDate": "Apr 14, 2021"
+      },
+      {
+        "id": 2,
+        "fileName": "tincidunt vehicula risus.",
+        "url": "sodales.",
+        "uploadDate": "Dec 26, 2020"
+      },
+      {
+        "id": 3,
+        "fileName": "massa.",
+        "url": "eu tellus",
+        "uploadDate": "Jun 14, 2021"
+      },
+      {
+        "id": 4,
+        "fileName": "rutrum. Fusce dolor quam,",
+        "url": "eget, ipsum.",
+        "uploadDate": "Aug 17, 2021"
+      },
+      {
+        "id": 5,
+        "fileName": "Nunc ullamcorper, velit in",
+        "url": "dignissim tempor",
+        "uploadDate": "May 2, 2021"
+      }
     ]
   },
   {
@@ -175,7 +239,8 @@
         "msgAt": "Dec 2, 2021",
         "senderName": "Malachi Carr"
       }
-    ],    "timeline": [
+    ],
+    "timeline": [
     {
       "title": "eu dui. Cum sociis natoque",
       "text": "Integer urna. Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut",
@@ -206,7 +271,39 @@
       "date": "Aug 29, 2021",
       "by": "Inez Crawford"
     }
-  ]
+  ],
+    "attachments": [
+      {
+        "id": 1,
+        "fileName": "tincidunt, neque vitae",
+        "url": "non enim",
+        "uploadDate": "Apr 14, 2021"
+      },
+      {
+        "id": 2,
+        "fileName": "tincidunt vehicula risus.",
+        "url": "sodales.",
+        "uploadDate": "Dec 26, 2020"
+      },
+      {
+        "id": 3,
+        "fileName": "massa.",
+        "url": "eu tellus",
+        "uploadDate": "Jun 14, 2021"
+      },
+      {
+        "id": 4,
+        "fileName": "rutrum. Fusce dolor quam,",
+        "url": "eget, ipsum.",
+        "uploadDate": "Aug 17, 2021"
+      },
+      {
+        "id": 5,
+        "fileName": "Nunc ullamcorper, velit in",
+        "url": "dignissim tempor",
+        "uploadDate": "May 2, 2021"
+      }
+    ]
 
   },
   {
@@ -245,7 +342,8 @@
         "msgAt": "Mar 31, 2021",
         "senderName": "Hedley Marks"
       }
-    ],    "timeline": [
+    ],
+    "timeline": [
     {
       "title": "eu dui. Cum sociis natoque",
       "text": "Integer urna. Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut",
@@ -276,7 +374,39 @@
       "date": "Aug 29, 2021",
       "by": "Inez Crawford"
     }
-  ]
+  ],
+    "attachments": [
+      {
+        "id": 1,
+        "fileName": "tincidunt, neque vitae",
+        "url": "non enim",
+        "uploadDate": "Apr 14, 2021"
+      },
+      {
+        "id": 2,
+        "fileName": "tincidunt vehicula risus.",
+        "url": "sodales.",
+        "uploadDate": "Dec 26, 2020"
+      },
+      {
+        "id": 3,
+        "fileName": "massa.",
+        "url": "eu tellus",
+        "uploadDate": "Jun 14, 2021"
+      },
+      {
+        "id": 4,
+        "fileName": "rutrum. Fusce dolor quam,",
+        "url": "eget, ipsum.",
+        "uploadDate": "Aug 17, 2021"
+      },
+      {
+        "id": 5,
+        "fileName": "Nunc ullamcorper, velit in",
+        "url": "dignissim tempor",
+        "uploadDate": "May 2, 2021"
+      }
+    ]
 
   },
   {
@@ -315,7 +445,8 @@
         "msgAt": "Aug 20, 2022",
         "senderName": "Vivien Lester"
       }
-    ],    "timeline": [
+    ],
+    "timeline": [
     {
       "title": "eu dui. Cum sociis natoque",
       "text": "Integer urna. Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas ornare egestas ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut",
@@ -346,7 +477,39 @@
       "date": "Aug 29, 2021",
       "by": "Inez Crawford"
     }
-  ]
+  ],
+    "attachments": [
+      {
+        "id": 1,
+        "fileName": "tincidunt, neque vitae",
+        "url": "non enim",
+        "uploadDate": "Apr 14, 2021"
+      },
+      {
+        "id": 2,
+        "fileName": "tincidunt vehicula risus.",
+        "url": "sodales.",
+        "uploadDate": "Dec 26, 2020"
+      },
+      {
+        "id": 3,
+        "fileName": "massa.",
+        "url": "eu tellus",
+        "uploadDate": "Jun 14, 2021"
+      },
+      {
+        "id": 4,
+        "fileName": "rutrum. Fusce dolor quam,",
+        "url": "eget, ipsum.",
+        "uploadDate": "Aug 17, 2021"
+      },
+      {
+        "id": 5,
+        "fileName": "Nunc ullamcorper, velit in",
+        "url": "dignissim tempor",
+        "uploadDate": "May 2, 2021"
+      }
+    ]
 
   }
 ]

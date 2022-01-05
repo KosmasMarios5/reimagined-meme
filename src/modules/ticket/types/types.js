@@ -1,3 +1,10 @@
+export type Attachment = {
+    id: string,
+    fileName: string,
+    url: string,
+    uploadDate: string
+}
+
 export type TicketTimeline = Array<{
     title: string,
     text: string,
@@ -15,7 +22,8 @@ export type Ticket = {
         message: string,
         msgAt: Date,
     }>,
-    timeline: TicketTimeline
+    timeline: TicketTimeline,
+    attachments: Array<Attachment>
 }
 
 export type UnmappedTicket = Ticket
