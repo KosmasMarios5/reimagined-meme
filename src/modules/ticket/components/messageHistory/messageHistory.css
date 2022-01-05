@@ -14,9 +14,9 @@
 }
 .conversation__history {
   background: var(--bs-gray-100);
-  height: 25rem;
+  height: 70vh;
   overflow-y: auto;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
 }
 .conversation .tox-tinymce {
   min-height: 160px;

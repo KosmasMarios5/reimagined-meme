@@ -14,7 +14,7 @@ type Props = {
 }
 
 const View = (props: Props) => {
-    const {ticket: {subject, status, openAt, conversations, id}, onClose} = props
+    const {ticket: {subject, status, openAt, conversations, id, timeline}, onClose} = props
     return (
         <Fragment>
             <Row>
