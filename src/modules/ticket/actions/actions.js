@@ -22,3 +22,6 @@ export const replyToTicket = actionCreator(ActionTypes.REPLY_TO_TICKET);
 export const replyToTicketSucceeded = actionCreator(ActionTypes.REPLY_TO_TICKET_SUCCEEDED);
 export const replyToTicketFailed = actionCreator(ActionTypes.REPLY_TO_TICKET_FAILED);
 
+export const getFaqs = actionCreator(ActionTypes.GET_FAQS);
+export const getFaqsSucceeded = actionCreator(ActionTypes.GET_FAQS_SUCCEEDED);
+export const getFaqsFailed = actionCreator(ActionTypes.GET_FAQS_FAILED);

@@ -1,4 +1,5 @@
-import type {Ticket, UnmappedTicket} from "./types";
+import type {FAQ, Ticket, UnmappedTicket} from "./types";
+import {UnmappedFAQ} from "./types";
 
 export const mapTicket: Ticket = (datum: UnmappedTicket) => {
     if (!datum) return
@@ -10,5 +11,15 @@ export const mapTicket: Ticket = (datum: UnmappedTicket) => {
         conversations: datum.conversations,
         timeline: datum.timeline,
         attachments: datum.attachments
+    }
+}
+
+export const mapFAQ: FAQ = (datum: UnmappedFAQ) => {
+    if (!datum) return
+    return {
+        id: datum.id,
+        question: datum.question,
+        answer: datum.answer,
+        category: datum.category,
     }
 }

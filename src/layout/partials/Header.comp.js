@@ -4,6 +4,7 @@ import {LinkContainer} from "react-router-bootstrap";
 import useUserAction from "../../modules/currentUser/hooks/useUserAction";
 import {getRouteUrl} from 'ergolib-ts'
 import {ROUTE_PAGE_DASHBOARD} from "../../router/routes";
+import {ROUTE_PAGE_FAQS, ROUTE_PAGE_TICKET_INDEX} from "../../modules/ticket/routes";
 
 export const Header = () => {
     const {userLogout} = useUserAction()
@@ -15,8 +16,11 @@ export const Header = () => {
                     <LinkContainer to={getRouteUrl(ROUTE_PAGE_DASHBOARD)}>
                         <Nav.Link>Dashboard</Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/tickets">
+                    <LinkContainer to={getRouteUrl(ROUTE_PAGE_TICKET_INDEX)}>
                         <Nav.Link>Tickets</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to={getRouteUrl(ROUTE_PAGE_FAQS)}>
+                        <Nav.Link>FAQs</Nav.Link>
                     </LinkContainer>
                     <div className={'me-auto'}/>
                     <div>

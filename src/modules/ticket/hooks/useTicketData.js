@@ -2,7 +2,7 @@
 import {createSelector} from 'reselect'
 import {useSelector} from "react-redux";
 import {parseMultipleFromReference} from 'ergolib-ts'
-import {parseTicket} from "../types/parse";
+import {parseFAQ, parseTicket} from "../types/parse";
 
 const selectLoading = createSelector(
     (state) => state.ticket,
@@ -31,6 +31,14 @@ const selectIndexTable = createSelector(
     })
 )
 
+const selectFAQs = createSelector(
+    [
+        (state) => state.ticket.get('allFAQs'),
+        (state) => state.ticket.get('FAQbyId'),
+    ],
+    (allFAQs, byId) => parseMultipleFromReference(allFAQs, byId, parseFAQ)
+)
+
 const selectById = createSelector(
     [
         (state) => state.ticket.get('byId'),
@@ -51,11 +59,13 @@ const useTicketData = ({id}: Props = {}) => {
     const create = useSelector(selectCreate)
     const indexTable = useSelector(selectIndexTable)
     const byId = useSelector(state => selectById(state, id))
+    const FAQs = useSelector(selectFAQs)
     return {
         loading,
         create,
         indexTable,
-        byId
+        byId,
+        FAQs
     }
 }
 

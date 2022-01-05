@@ -1,4 +1,4 @@
-import type {Ticket} from "./types";
+import type {FAQ, Ticket} from "./types";
 import {parseMultiple} from 'ergolib-ts'
 
 const parseConversion = (datum) => {
@@ -41,5 +41,15 @@ export const parseTicket: Ticket = (datum) => {
         conversations: parseMultiple(datum.get('conversations'), parseConversion),
         timeline: parseMultiple(datum.get('timeline'), parseTimeline),
         attachments: parseMultiple(datum.get('attachments'), parseAttachment),
+    }
+}
+
+export const parseFAQ: FAQ = (datum) => {
+    if (!datum) return;
+    return {
+        id: datum.get('id'),
+        question: datum.get('question'),
+        answer: datum.get('answer'),
+        category: datum.get('category'),
     }
 }

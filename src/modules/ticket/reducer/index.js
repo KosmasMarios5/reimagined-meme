@@ -1,6 +1,6 @@
 import * as ActionTypes from '../actions/types'
 import {mapMultiple} from 'ergolib-ts'
-import {mapTicket} from "../types/map";
+import {mapFAQ, mapTicket} from "../types/map";
 import _ from 'lodash'
 import {fromJS} from "immutable";
 
@@ -12,6 +12,8 @@ const INITIAL_STATE = {
     },
     loading: false,
     byId: {},
+    FAQbyId: {},
+    allFAQs: [],
     indexTable: {
         loading: false,
         items: [],
@@ -120,6 +122,28 @@ function replyToTicketFailed(state, action) {
         .set('loading', false);
 }
 
+
+function getFaqs(state) {
+    return state
+        .set('loading', true)
+}
+
+function getFaqsSucceeded(state, action) {
+    const {payload} = action
+    const mappedData = mapMultiple(payload, mapFAQ)
+    // const sortedKeys = _.orderBy(mappedData, 'date', 'desc').map(i => i.id);
+    const sortedKeys = Object.keys(mappedData);
+    return state
+        .set('FAQbyId', state.get('FAQbyId').merge(fromJS(mappedData)))
+        .set('allFAQs', fromJS(sortedKeys))
+        .set('loading', false)
+}
+
+function getFaqsFailed(state, action) {
+    return state
+        .set('loading', false)
+}
+
 export default {
     initialState: INITIAL_STATE,
     handlers: {
@@ -143,5 +167,10 @@ export default {
         [ActionTypes.REPLY_TO_TICKET]: replyToTicket,
         [ActionTypes.REPLY_TO_TICKET_SUCCEEDED]: replyToTicketSucceeded,
         [ActionTypes.REPLY_TO_TICKET_FAILED]: replyToTicketFailed,
+
+        [ActionTypes.GET_FAQS]: getFaqs,
+        [ActionTypes.GET_FAQS_SUCCEEDED]: getFaqsSucceeded,
+        [ActionTypes.GET_FAQS_FAILED]: getFaqsFailed,
+
     }
 }

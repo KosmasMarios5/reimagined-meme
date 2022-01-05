@@ -1,3 +1,10 @@
+export type FAQ = {
+    id: string,
+    question: string,
+    answer: string,
+    category: string
+}
+
 export type Attachment = {
     id: string,
     fileName: string,
@@ -27,3 +34,4 @@ export type Ticket = {
 }
 
 export type UnmappedTicket = Ticket
+export type UnmappedFAQ = FAQ

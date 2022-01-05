@@ -44,12 +44,18 @@ const useTicketAction = () => {
         )
     }, [dispatch])
 
+    const getFaqs = useCallback(() => {
+        dispatch(actions.getFaqs()
+        )
+    }, [dispatch])
+
     return {
         getTickets,
         getTicketDetails,
         createTicket,
         clearCreateTicketData,
-        replyToTicket
+        replyToTicket,
+        getFaqs
     }
 }
 

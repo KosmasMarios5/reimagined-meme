@@ -78,10 +78,23 @@ const replyToTicket = requestCreator({
     }
 })
 
+const getFaqs = requestCreator({
+    url: '/faqs',
+    method: 'GET',
+    onSuccess: Actions.getFaqsSucceeded,
+    onFailure: Actions.getFaqsFailed,
+    overrideTask: async () => {
+        return {
+            data: require('./mock/faqs.json')
+        }
+    }
+})
+
 export default {
     [ActionTypes.GET_TICKETS]: getTickets,
     [ActionTypes.GET_TICKET_DETAILS]: getTicketDetails,
     [ActionTypes.CREATE_TICKET]: createTicket,
     [ActionTypes.UPDATE_TICKET]: updateTicket,
     [ActionTypes.REPLY_TO_TICKET]: replyToTicket,
+    [ActionTypes.GET_FAQS]: getFaqs,
 }
